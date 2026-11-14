@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Exercice Starlight — Lire le wiki comme un site web</title>
+<style>
+:root{--bg:#F7F5F0;--card:#FFFDF9;--ink:#14213D;--soft:#3D4A5C;--mute:#6B7585;
+--line:#E2DDD2;--accent:#A94E17;--accent2:#E07A2F;--code:#EDEAE2}
+@media (prefers-color-scheme:dark){:root{--bg:#10192E;--card:#18233D;--ink:#F2EFE8;
+--soft:#C9D1DE;--mute:#93A0B4;--line:#2C3A58;--accent:#F0A368;--accent2:#E07A2F;--code:#22304F}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:40px 16px 64px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+h1{font:600 34px/1.15 "Space Grotesk",system-ui,sans-serif;margin:8px 0 24px}
+h2{font:600 23px/1.25 "Space Grotesk",system-ui,sans-serif;margin:36px 0 12px}
+h3{font-size:18px;margin:28px 0 8px}
+p,li{color:var(--soft)} strong{color:var(--ink)}
+a{color:var(--accent);font-weight:600}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em;
+font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.pre{position:relative;margin:16px 0}
+pre{margin:0;background:#14213D;color:#F7F5F0;padding:20px;border-radius:12px;
+overflow-x:auto;white-space:pre-wrap;font-size:14.5px;line-height:1.55}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+.copy{position:absolute;top:10px;right:10px;border:0;border-radius:8px;padding:6px 12px;
+background:var(--accent2);color:#14213D;font:600 13px system-ui,sans-serif;cursor:pointer}
+.table{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+th{background:#14213D;color:#F7F5F0;text-align:left;padding:10px 12px}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--soft)}
+ul.check{list-style:none;padding-left:0}
+ul.check li{padding-left:30px;position:relative;margin:6px 0}
+ul.check li:before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;
+border:2px solid var(--accent);border-radius:4px}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mute)}
+</style>
+</head>
+<body>
+<main>
+<p class="kicker">AI pour Business &amp; Functional Analysts · Séance 2</p>
+<h1>Exercice Starlight — Lire le wiki comme un site web</h1>
+<p><strong>Moment :</strong> partie 2, en parallèle de la démo du formateur. <strong>Outil :</strong> Claude Code ou Codex, ouvert sur votre dossier de travail. <strong>Livrable :</strong> un site local qui affiche votre wiki, avec un menu et une recherche.</p>
+<h2>Consigne</h2>
+<p>Votre wiki est une suite de fichiers Markdown. Un lecteur qui n’ouvre pas de Markdown ne le lira pas. Demandez à votre agent d’ajouter <a href="https://starlight.astro.build" target="_blank" rel="noopener">Starlight</a> au dossier de travail pour afficher le wiki dans un navigateur, <strong>sans toucher aux pages</strong>.</p>
+<p>Le Markdown de <code>wiki/</code> reste la seule source de vérité : on corrige le Markdown, puis le site se met à jour. On ne corrige jamais le site, et le site ne contient aucune page qui lui soit propre.</p>
+<p><strong>Prérequis :</strong> aucun. Starlight a besoin de Node.js ; s’il manque sur votre poste, l’agent l’installe lui-même. Il vous dit ce qu’il installe, et vous demande d’agir seulement si un mot de passe est nécessaire.</p>
+<h2>Étapes</h2>
+<ol><li>Ouvrez votre dossier de travail (celui qui contient <code>CLAUDE.md</code>, <code>raw/</code> et <code>wiki/</code>) dans votre agent.</li><li>Lancez le prompt ci-dessous. L’agent s’arrête après l’étape 1 : lisez son plan.</li><li>Confirmez, puis laissez-le installer et lancer le site.</li><li>Ouvrez l’adresse qu’il vous donne et faites les vérifications.</li></ol>
+<h2>Prompt</h2>
+<pre><code>Ajoute un site Starlight (Astro) à ce dossier pour lire le wiki dans un navigateur.
+
+Tu gères toute l&#x27;installation pour que le site fonctionne sur ce poste.
+Commence par vérifier Node.js (node --version). S&#x27;il manque, ou si sa version est
+trop ancienne pour Astro, installe une version récente toi-même, avec la méthode
+la plus simple pour ce système, de préférence sans droits administrateur.
+Ne t&#x27;arrête pas pour ça : dis-moi seulement ce que tu installes et où.
+Si une commande exige mon mot de passe, donne-moi cette seule commande à lancer,
+puis continue.
+
+La règle principale : le Markdown de wiki/ est la seule source de vérité.
+- Ne modifie, ne déplace et ne renomme aucun fichier de wiki/ ni de raw/.
+  Ne touche pas à CLAUDE.md ni à AGENTS.md.
+- Crée le site dans un nouveau dossier site-wiki/, à côté de wiki/.
+- site-wiki/ ne contient aucune page de contenu qui lui soit propre : tout le
+  texte affiché vient de wiki/. Le site ne contient que sa configuration.
+- Fais lire wiki/ directement par le site si c&#x27;est possible. Si Starlight a
+  besoin des pages dans son propre dossier, elles y sont générées à partir de
+  wiki/ à chaque lancement, jamais copiées à la main, jamais modifiées, et
+  ignorées par git, comme les dossiers d&#x27;installation et de build.
+- Si une page n&#x27;a pas ce que Starlight exige (par exemple un titre dans son
+  en-tête), ne la corrige pas dans wiki/ : règle-le du côté du site et donne-moi
+  la liste des pages concernées.
+- Quand je modifie un fichier de wiki/, la page du site change sans autre action
+  de ma part.
+- wiki/index.md est la page d&#x27;accueil. Le menu latéral suit les dossiers de wiki/.
+- Active la recherche, et l&#x27;affichage des diagrammes Mermaid.
+- Le site est en français.
+
+Travaille en deux étapes.
+
+Étape 1 : dis-moi ce que tu vas créer, dans quels dossiers, ce que tu vas
+installer (Node.js compris), et comment les pages de wiki/ arrivent dans le site
+sans devenir une deuxième source. Arrête-toi et montre-moi ce plan.
+
+Étape 2, quand je confirme : installe, lance le site en local et donne-moi
+son adresse. À la fin, donne-moi :
+- ce que tu as installé sur le poste, et la liste des fichiers et dossiers créés ;
+- la preuve que wiki/ et raw/ sont inchangés ;
+- les pages qui ne s&#x27;affichent pas et les liens cassés, sans les corriger ;
+- la commande pour relancer le site plus tard.</code></pre>
+<h2>Vérification</h2>
+<ul class="check"><li>Le menu latéral reprend les dossiers de <code>wiki/</code>, et la page d’accueil est l’index.</li><li>Cherchez une règle dans la recherche du site, par exemple <code>BR-014</code> : la bonne page sort-elle ?</li><li>Ouvrez une page qui contient un diagramme : s’affiche-t-il comme un dessin, ou comme du code ?</li><li>Changez un mot dans un fichier de <code>wiki/</code> : la page du site change-t-elle ? Remettez le mot ensuite.</li><li>Demandez à l’agent <code>git status</code> (ou la liste des fichiers modifiés) : rien n’a changé dans <code>wiki/</code> ni dans <code>raw/</code>, à part votre essai.</li><li>Regardez dans <code>site-wiki/</code> : y a-t-il des pages Markdown ? Si oui, sont-elles générées à partir de <code>wiki/</code> et ignorées par git ? Une page écrite à la main dans <code>site-wiki/</code> serait une deuxième source.</li><li>Lisez la liste des pages non affichées et des liens cassés : c’est un constat sur votre wiki, pas un défaut du site.</li></ul>
+<p><strong>Rien à remettre.</strong> Le site sert à lire ; votre livrable reste le wiki.</p>
+<footer>LUMEN est un projet fictif, écrit pour cette formation.</footer>
+</main>
+<script>
+document.querySelectorAll('pre').forEach(function(pre){
+  var box=document.createElement('div');box.className='pre';
+  pre.parentNode.insertBefore(box,pre);box.appendChild(pre);
+  var b=document.createElement('button');b.className='copy';b.type='button';
+  var idle=document.documentElement.lang==='fr'?'Copier':'Copy';
+  var done=document.documentElement.lang==='fr'?'Copié':'Copied';
+  b.textContent=idle;
+  b.onclick=function(){navigator.clipboard.writeText(pre.innerText).then(function(){
+    b.textContent=done;setTimeout(function(){b.textContent=idle},1500)})};
+  box.appendChild(b);
+});
+</script>
+</body>
+</html>

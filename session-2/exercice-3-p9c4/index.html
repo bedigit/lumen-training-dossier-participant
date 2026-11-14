@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Exercise 3 — A BRD in your company&#x27;s standard, from an example</title>
+<style>
+:root{--bg:#F7F5F0;--card:#FFFDF9;--ink:#14213D;--soft:#3D4A5C;--mute:#6B7585;
+--line:#E2DDD2;--accent:#A94E17;--accent2:#E07A2F;--code:#EDEAE2}
+@media (prefers-color-scheme:dark){:root{--bg:#10192E;--card:#18233D;--ink:#F2EFE8;
+--soft:#C9D1DE;--mute:#93A0B4;--line:#2C3A58;--accent:#F0A368;--accent2:#E07A2F;--code:#22304F}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:40px 16px 64px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+h1{font:600 34px/1.15 "Space Grotesk",system-ui,sans-serif;margin:8px 0 24px}
+h2{font:600 23px/1.25 "Space Grotesk",system-ui,sans-serif;margin:36px 0 12px}
+h3{font-size:18px;margin:28px 0 8px}
+p,li{color:var(--soft)} strong{color:var(--ink)}
+a{color:var(--accent);font-weight:600}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em;
+font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.pre{position:relative;margin:16px 0}
+pre{margin:0;background:#14213D;color:#F7F5F0;padding:20px;border-radius:12px;
+overflow-x:auto;white-space:pre-wrap;font-size:14.5px;line-height:1.55}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+.copy{position:absolute;top:10px;right:10px;border:0;border-radius:8px;padding:6px 12px;
+background:var(--accent2);color:#14213D;font:600 13px system-ui,sans-serif;cursor:pointer}
+.table{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+th{background:#14213D;color:#F7F5F0;text-align:left;padding:10px 12px}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--soft)}
+ul.check{list-style:none;padding-left:0}
+ul.check li{padding-left:30px;position:relative;margin:6px 0}
+ul.check li:before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;
+border:2px solid var(--accent);border-radius:4px}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mute)}
+</style>
+</head>
+<body>
+<main>
+<p class="kicker">AI for Business &amp; Functional Analysts · Session 2</p>
+<h1>Exercise 3 — A BRD in your company&#x27;s standard, from an example</h1>
+<p><strong>Tool:</strong> Word file creation, guided by an existing document. <strong>Deliverable:</strong> a Business Requirements Document for the LUMEN project as it stands, with the same structure as a BRD your company already wrote.</p>
+<p>You don't start from a blank page, and you don't describe the format yourself: you give the AI a document that already follows the house standard. The example gives the form. It never gives the facts.</p>
+<ol><li>Copy the example BRD <a href="BRD_exemple_PIM_anonymise.pdf" download>exemple/BRD_exemple_PIM_anonymise.pdf</a> to <code>raw</code>. It is the functional specification of another project (PIM, post-incident management for a rail operator), anonymised: people, company and systems are fictitious.</li><li>Run the prompt. Stop at step 1 and check the standard it describes against the example.</li><li>Confirm, and get the BRD.</li><li>Open the example and your BRD side by side: same sections, same order, same numbering?</li><li>Search your BRD for anything that belongs to the example's project.</li></ol>
+<pre><code>Example: raw/BRD_exemple_PIM_anonymise.pdf. It is a BRD from another project.
+Use it only as our company standard: structure, numbering, tone and level of detail.
+Never reuse its content.
+
+Subject of the new BRD: the LUMEN project as the wiki describes it today.
+Sources: the wiki only. Read wiki/index.md first, then the pages on the scope, the business
+needs, the requirements, the business rules, the use case catalogue and the target process.
+Work in two steps.
+
+Step 1: describe the standard you see in the example: the sections in order,
+how requirements are numbered and prioritised, what goes in tables, the tone.
+Then, for each section, say which source you will fill it from.
+List the sections for which we have no source. Stop and show me this.
+
+Step 2, once I confirm: write the BRD in wiki/deliverables/BRD-lumen.docx,
+with the same sections, in the same order, with the same heading names.
+If you cannot write a Word file, write Markdown with the same headings.
+- Number and prioritise the functional requirements the way the example does.
+- Cite the wiki page and the rule for each requirement.
+- Say for each requirement whether it is delivered, analysed or still to analyse, as the wiki does.
+- Use only what the wiki says, not what you know about invoicing tools in general.
+- If no source covers a section, keep the heading and write &quot;To be confirmed&quot;. Don&#x27;t fill it in.
+- Put what the wiki leaves open under the assumptions, as questions with an owner.
+At the end, list where you departed from the example&#x27;s structure, and why.</code></pre>
+<p><strong>Check:</strong></p>
+<ul class="check"><li>Same sections, in the same order, with the same heading names as the example?</li><li>Are the requirements numbered and prioritised the way the example does it?</li><li>Does anything come from the example's project: a system, a role, a dependency, a figure?</li><li>Which sections had no source? Are they marked "To be confirmed", or filled in?</li><li>Is a use case that is only analysed written as delivered? Check its status in the catalogue.</li><li>Does anything come from general knowledge rather than from the wiki?</li><li>Pick three requirements and find their wiki page and rule.</li></ul>
+<footer>LUMEN is a fictional project, written for this training.</footer>
+</main>
+<script>
+document.querySelectorAll('pre').forEach(function(pre){
+  var box=document.createElement('div');box.className='pre';
+  pre.parentNode.insertBefore(box,pre);box.appendChild(pre);
+  var b=document.createElement('button');b.className='copy';b.type='button';
+  var idle=document.documentElement.lang==='fr'?'Copier':'Copy';
+  var done=document.documentElement.lang==='fr'?'Copié':'Copied';
+  b.textContent=idle;
+  b.onclick=function(){navigator.clipboard.writeText(pre.innerText).then(function(){
+    b.textContent=done;setTimeout(function(){b.textContent=idle},1500)})};
+  box.appendChild(b);
+});
+</script>
+</body>
+</html>

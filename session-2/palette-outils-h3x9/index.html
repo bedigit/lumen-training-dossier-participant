@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Palette d’outils pour dialoguer avec l’IA</title>
+<style>
+:root{--bg:#F7F5F0;--card:#FFFDF9;--ink:#14213D;--soft:#3D4A5C;--mute:#6B7585;
+--line:#E2DDD2;--accent:#A94E17;--accent2:#E07A2F;--code:#EDEAE2}
+@media (prefers-color-scheme:dark){:root{--bg:#10192E;--card:#18233D;--ink:#F2EFE8;
+--soft:#C9D1DE;--mute:#93A0B4;--line:#2C3A58;--accent:#F0A368;--accent2:#E07A2F;--code:#22304F}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:40px 16px 64px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+h1{font:600 34px/1.15 "Space Grotesk",system-ui,sans-serif;margin:8px 0 24px}
+h2{font:600 23px/1.25 "Space Grotesk",system-ui,sans-serif;margin:36px 0 12px}
+h3{font-size:18px;margin:28px 0 8px}
+p,li{color:var(--soft)} strong{color:var(--ink)}
+a{color:var(--accent);font-weight:600}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em;
+font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.pre{position:relative;margin:16px 0}
+pre{margin:0;background:#14213D;color:#F7F5F0;padding:20px;border-radius:12px;
+overflow-x:auto;white-space:pre-wrap;font-size:14.5px;line-height:1.55}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+.copy{position:absolute;top:10px;right:10px;border:0;border-radius:8px;padding:6px 12px;
+background:var(--accent2);color:#14213D;font:600 13px system-ui,sans-serif;cursor:pointer}
+.table{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+th{background:#14213D;color:#F7F5F0;text-align:left;padding:10px 12px}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--soft)}
+ul.check{list-style:none;padding-left:0}
+ul.check li{padding-left:30px;position:relative;margin:6px 0}
+ul.check li:before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;
+border:2px solid var(--accent);border-radius:4px}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mute)}
+</style>
+</head>
+<body>
+<main>
+<p class="kicker">AI pour Business &amp; Functional Analysts · Séance 2</p>
+<h1>Palette d’outils pour dialoguer avec l’IA</h1>
+<p>Fiche mémo. Partir de ce que l’on veut obtenir, puis taper la formule. Aucun outil n’est imposé : utiliser ceux que votre organisation autorise.</p>
+<ul><li><strong>En gras</strong> : un mot-clé ou une commande qui déclenche un mécanisme précis.</li><li>Entre guillemets : une formulation libre, qui fonctionne avec n’importe quel assistant.</li><li>Les noms d’outils changent souvent ; vérifier dans votre version.</li></ul>
+<h2>1. Cadrer avant de produire</h2>
+<div class="table"><table><thead><tr><th>Je veux…</th><th>Ce que je tape</th><th>Claude</th><th>ChatGPT</th></tr></thead><tbody><tr><td>Être interrogé avant toute rédaction</td><td>« Pose-moi des questions à choix avant de commencer, une ou deux à la fois »</td><td>Outil Ask question (cartes à choix)</td><td>Questions en texte</td></tr><tr><td>Être challengé sur un plan ou une spec jusqu’au bout</td><td>« Interroge-moi sans relâche sur ce plan, une question à la fois, en donnant ta réponse recommandée. Ne rédige rien tant que tout n’est pas tranché »</td><td>Formulation libre</td><td>Formulation libre</td></tr><tr><td>Valider un plan avant qu’il agisse</td><td>« Propose un plan, n’exécute rien »</td><td><strong>Plan mode</strong> (Claude Code)</td><td>Plan en texte</td></tr></tbody></table></div>
+<h2>2. Réfléchir et chercher</h2>
+<div class="table"><table><thead><tr><th>Je veux…</th><th>Ce que je tape</th><th>Claude</th><th>ChatGPT</th></tr></thead><tbody><tr><td>Un raisonnement plus long</td><td><strong>ultrathink</strong></td><td>Mot-clé dans Claude Code ; interrupteur Extended thinking dans l’appli</td><td>« think hard », ou modèle Thinking</td></tr><tr><td>Une information à jour</td><td>« Cherche sur le web »</td><td>Web search</td><td>Search</td></tr><tr><td>Un rapport sourcé</td><td>« Fais une <strong>recherche approfondie</strong> sur… »</td><td>Research</td><td>Deep research</td></tr></tbody></table></div>
+<h2>3. Produire</h2>
+<div class="table"><table><thead><tr><th>Je veux…</th><th>Ce que je tape</th><th>Claude</th><th>ChatGPT</th></tr></thead><tbody><tr><td>Un schéma dans la réponse</td><td>« Montre-moi ça en schéma »</td><td>Visualizer</td><td>Graphiques via Data analysis</td></tr><tr><td>Un diagramme modifiable</td><td>« Donne le source PlantUML, pas une image »</td><td>Texte</td><td>Texte</td></tr><tr><td>Une page ou un livrable à côté du chat</td><td>« Fais-en un <strong>artifact</strong> »</td><td>Artifacts</td><td>« Ouvre un <strong>canvas</strong> »</td></tr><tr><td>Un fichier bureautique</td><td>« Génère un .docx / .xlsx / .pptx »</td><td>Création de fichiers</td><td>Création de fichiers</td></tr><tr><td>Analyser un fichier de données</td><td>« Analyse ce fichier et calcule… »</td><td>Code execution</td><td>Data analysis</td></tr></tbody></table></div>
+<h2>4. Vérifier</h2>
+<div class="table"><table><thead><tr><th>Je veux…</th><th>Ce que je tape</th><th>Claude</th><th>ChatGPT</th></tr></thead><tbody><tr><td>Une relecture critique</td><td>« Relis en adversaire : liste ce qui est faux, ambigu ou manquant »</td><td>Formulation libre</td><td>Formulation libre</td></tr><tr><td>Séparer l’établi du supposé</td><td>« Distingue ce qui vient des sources, ce que tu proposes et ce qui manque. Cite chaque passage »</td><td>Formulation libre</td><td>Formulation libre</td></tr></tbody></table></div>
+<h2>5. Déléguer et automatiser</h2>
+<div class="table"><table><thead><tr><th>Je veux…</th><th>Ce que je tape</th><th>Claude</th><th>ChatGPT</th></tr></thead><tbody><tr><td>Plusieurs agents en parallèle</td><td><strong>use a workflow</strong>, <strong>ultracode</strong>, « utilise des sous-agents »</td><td>Workflows et subagents (Claude Code)</td><td>Agent mode, Codex</td></tr><tr><td>Une action sur un site ou une appli</td><td>« Fais-le dans mon navigateur »</td><td>Claude in Chrome, Cowork</td><td>Agent mode, Atlas</td></tr><tr><td>Une tâche récurrente</td><td>« Tous les lundis, fais… »</td><td>Scheduled tasks, <strong>/loop</strong>, <strong>/schedule</strong></td><td>Tasks</td></tr></tbody></table></div>
+<h2>6. Capitaliser</h2>
+<div class="table"><table><thead><tr><th>Je veux…</th><th>Ce que je tape</th><th>Claude</th><th>ChatGPT</th></tr></thead><tbody><tr><td>Retenir une préférence</td><td>« Souviens-toi que… »</td><td>Memory</td><td>Memory</td></tr><tr><td>Réutiliser un savoir-faire</td><td><strong>/nom-du-skill</strong></td><td>Skills</td><td>GPTs, @mention d’un GPT</td></tr><tr><td>Garder le contexte d’une mission</td><td>Ranger la conversation dans un projet</td><td>Projects</td><td>Projects</td></tr><tr><td>Lire Jira, Confluence, Drive</td><td>« Va lire le ticket X dans Jira »</td><td>Connectors</td><td>Connectors / Apps</td></tr></tbody></table></div>
+<h2>À retenir</h2>
+<ul><li><strong>ultrathink</strong>, <strong>use a workflow</strong> et <strong>ultracode</strong> ne sont des mots-clés que dans Claude Code. Dans une appli de chat, l’équivalent est un interrupteur ou un choix de modèle.</li><li>Une formulation libre bien écrite vaut souvent un outil : dire ce que l’on fournit, ce que l’on attend, et ce que l’IA ne doit pas inventer.</li><li>L’IA interroge et propose ; elle ne valide pas le besoin. Une question restée sans réponse reste « à confirmer ».</li></ul>
+<h2>Pour aller plus loin : les skills (séance 3)</h2>
+<p>Quand une même consigne revient souvent, on peut l’enregistrer une fois et la rappeler d’un mot : c’est un <strong>skill</strong>. Dans Claude, il s’appelle par <strong>/nom-du-skill</strong> ; dans ChatGPT, l’équivalent le plus proche est un GPT personnalisé.</p>
+<p>Exemple : la consigne « interroge-moi sans relâche » du tableau 1 existe sous forme de skill public, <strong>/grill-me</strong>. Même résultat, sans la retaper.</p>
+<p>Pour cette séance, les formulations libres suffisent. La création et l’installation de skills sont l’objet de la séance 3.</p>
+<footer>LUMEN est un projet fictif, écrit pour cette formation.</footer>
+</main>
+<script>
+document.querySelectorAll('pre').forEach(function(pre){
+  var box=document.createElement('div');box.className='pre';
+  pre.parentNode.insertBefore(box,pre);box.appendChild(pre);
+  var b=document.createElement('button');b.className='copy';b.type='button';
+  var idle=document.documentElement.lang==='fr'?'Copier':'Copy';
+  var done=document.documentElement.lang==='fr'?'Copié':'Copied';
+  b.textContent=idle;
+  b.onclick=function(){navigator.clipboard.writeText(pre.innerText).then(function(){
+    b.textContent=done;setTimeout(function(){b.textContent=idle},1500)})};
+  box.appendChild(b);
+});
+</script>
+</body>
+</html>
