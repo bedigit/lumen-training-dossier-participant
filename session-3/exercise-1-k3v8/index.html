@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Exercise 1 — Add an existing skill and run it on UC-18</title>
+<style>
+:root{--bg:#F7F5F0;--card:#FFFDF9;--ink:#14213D;--soft:#3D4A5C;--mute:#6B7585;
+--line:#E2DDD2;--accent:#A94E17;--accent2:#E07A2F;--code:#EDEAE2}
+@media (prefers-color-scheme:dark){:root{--bg:#10192E;--card:#18233D;--ink:#F2EFE8;
+--soft:#C9D1DE;--mute:#93A0B4;--line:#2C3A58;--accent:#F0A368;--accent2:#E07A2F;--code:#22304F}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:40px 16px 64px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+h1{font:600 34px/1.15 "Space Grotesk",system-ui,sans-serif;margin:8px 0 24px}
+h2{font:600 23px/1.25 "Space Grotesk",system-ui,sans-serif;margin:36px 0 12px}
+h3{font-size:18px;margin:28px 0 8px}
+p,li{color:var(--soft)} strong{color:var(--ink)}
+a{color:var(--accent);font-weight:600}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em;
+font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.pre{position:relative;margin:16px 0}
+pre{margin:0;background:#14213D;color:#F7F5F0;padding:20px;border-radius:12px;
+overflow-x:auto;white-space:pre-wrap;font-size:14.5px;line-height:1.55}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+.copy{position:absolute;top:10px;right:10px;border:0;border-radius:8px;padding:6px 12px;
+background:var(--accent2);color:#14213D;font:600 13px system-ui,sans-serif;cursor:pointer}
+.table{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+th{background:#14213D;color:#F7F5F0;text-align:left;padding:10px 12px}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--soft)}
+ul.check{list-style:none;padding-left:0}
+ul.check li{padding-left:30px;position:relative;margin:6px 0}
+ul.check li:before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;
+border:2px solid var(--accent);border-radius:4px}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mute)}
+</style>
+</head>
+<body>
+<main>
+<p class="kicker">AI for Business &amp; Functional Analysts · Session 3</p>
+<h1>Exercise 1 — Add an existing skill and run it on UC-18</h1>
+<p><strong>Time:</strong> 10 minutes.</p>
+<h2>Brief</h2>
+<p>UC-18, "Envoyer des rappels manuels ou automatiques" (send manual or automatic reminders), still has open questions. Before you write anything, let a skill written by someone else question you about this need.</p>
+<p>The skill is <strong>grill-me</strong>, published by Matt Pocock on GitHub under the MIT licence. It is a one-line wrapper: it calls a second skill by the same author, <strong>grilling</strong>, which holds the instructions. grilling asks its questions in short numbered rounds and gives the answer it recommends for each.</p>
+<ul><li>grill-me: <a href="https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me" target="_blank" rel="noopener">https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me</a></li><li>grilling: <a href="https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling" target="_blank" rel="noopener">https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling</a></li></ul>
+<p>You also need your LUMEN working folder, with its wiki.</p>
+<h2>Steps</h2>
+<ol><li><strong>Read the skill before you add it.</strong> Open the <code>SKILL.md</code> of grill-me: it only calls grilling. Then open the <code>SKILL.md</code> of grilling. Find its description, then what it tells the assistant to do.</li><li><strong>Add it</strong>: ask your assistant to do it, with the link. Nothing is installed on your PC: a skill is a folder of text files.</li></ol>
+<p>   ``<code>text    Add the grill-me skill from this link, with the grilling skill it calls:    https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me    </code>``</p>
+<p>   If your assistant cannot add skills, copy the content of grilling's <code>SKILL.md</code> and paste it at the start of a new conversation. The questions are the same; the skill just has no name.</p>
+<ol><li><strong>Run it</strong> in a new conversation:</li></ol>
+<p>   ``<code>text    Grill me on UC-18, sending manual or automatic reminders.    Read the use case page in the wiki and open-questions.md first.    </code>``</p>
+<ol><li><strong>Answer five questions.</strong> Leave one unanswered, on purpose.</li><li><strong>Compare</strong> the questions it asked with <code>wiki/open-questions.md</code>.</li></ol>
+<h2>Check</h2>
+<p>Check directly in the conversation that:</p>
+<ul><li>the skill fired: the assistant asks its questions in rounds, each with a recommended answer;</li><li>the assistant waits for your answers and does not answer for you;</li><li>no question is about a point the wiki already settles;</li><li>the question you left unanswered stays open: it is not turned into a decision;</li><li>the answers the assistant recommends are presented as proposals, not as LUMEN rules.</li></ul>
+<p>If the skill does not show up once added, check the folder level: <code>SKILL.md</code> must sit directly in the skill folder, with no folder in between.</p>
+<p><strong>Nothing to hand in.</strong> Keep in mind what you would change in this skill so that it reads the wiki before asking its questions: that is where the next part starts.</p>
+<footer>LUMEN is a fictional project, written for this training.</footer>
+</main>
+<script>
+document.querySelectorAll('pre').forEach(function(pre){
+  var box=document.createElement('div');box.className='pre';
+  pre.parentNode.insertBefore(box,pre);box.appendChild(pre);
+  var b=document.createElement('button');b.className='copy';b.type='button';
+  var idle=document.documentElement.lang==='fr'?'Copier':'Copy';
+  var done=document.documentElement.lang==='fr'?'Copié':'Copied';
+  b.textContent=idle;
+  b.onclick=function(){navigator.clipboard.writeText(pre.innerText).then(function(){
+    b.textContent=done;setTimeout(function(){b.textContent=idle},1500)})};
+  box.appendChild(b);
+});
+</script>
+</body>
+</html>

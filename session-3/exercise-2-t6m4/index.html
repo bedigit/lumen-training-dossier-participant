@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Exercise 2 — Write your first skill: meeting minutes</title>
+<style>
+:root{--bg:#F7F5F0;--card:#FFFDF9;--ink:#14213D;--soft:#3D4A5C;--mute:#6B7585;
+--line:#E2DDD2;--accent:#A94E17;--accent2:#E07A2F;--code:#EDEAE2}
+@media (prefers-color-scheme:dark){:root{--bg:#10192E;--card:#18233D;--ink:#F2EFE8;
+--soft:#C9D1DE;--mute:#93A0B4;--line:#2C3A58;--accent:#F0A368;--accent2:#E07A2F;--code:#22304F}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:40px 16px 64px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+h1{font:600 34px/1.15 "Space Grotesk",system-ui,sans-serif;margin:8px 0 24px}
+h2{font:600 23px/1.25 "Space Grotesk",system-ui,sans-serif;margin:36px 0 12px}
+h3{font-size:18px;margin:28px 0 8px}
+p,li{color:var(--soft)} strong{color:var(--ink)}
+a{color:var(--accent);font-weight:600}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em;
+font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.pre{position:relative;margin:16px 0}
+pre{margin:0;background:#14213D;color:#F7F5F0;padding:20px;border-radius:12px;
+overflow-x:auto;white-space:pre-wrap;font-size:14.5px;line-height:1.55}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+.copy{position:absolute;top:10px;right:10px;border:0;border-radius:8px;padding:6px 12px;
+background:var(--accent2);color:#14213D;font:600 13px system-ui,sans-serif;cursor:pointer}
+.table{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+th{background:#14213D;color:#F7F5F0;text-align:left;padding:10px 12px}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--soft)}
+ul.check{list-style:none;padding-left:0}
+ul.check li{padding-left:30px;position:relative;margin:6px 0}
+ul.check li:before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;
+border:2px solid var(--accent);border-radius:4px}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mute)}
+</style>
+</head>
+<body>
+<main>
+<p class="kicker">AI for Business &amp; Functional Analysts · Session 3</p>
+<h1>Exercise 2 — Write your first skill: meeting minutes</h1>
+<p><strong>Time:</strong> 40 minutes.</p>
+<h2>Brief</h2>
+<p>The <a href="Dialogue_reunion_Peppol.md" download>Peppol discovery meeting</a> from session 2 has no minutes. The wiki holds the minutes of the earlier meetings, all in the same format, in <code>wiki/reunions/</code>.</p>
+<p>Create a skill named <strong>meeting-minutes</strong> that writes the minutes of a LUMEN meeting in the format of the existing minutes, from a transcript or from raw notes. Then use it to produce the minutes of the Peppol meeting.</p>
+<p>The skill is written in English. The minutes it produces are in French, like the rest of the wiki.</p>
+<p>You may use AI to write the skill. You reread it and you correct it: you decide what goes into it.</p>
+<h2>The skill</h2>
+<p>Your <code>meeting-minutes/</code> folder holds at least a <code>SKILL.md</code> file, with:</p>
+<ul><li>a <strong>description</strong> that says what the skill does and when to use it, in the words a colleague would use;</li><li><strong>steps</strong>: read the template and an example, pick out the decisions, the actions and the open points, write, save;</li><li><strong>rules</strong>: quote the line of the transcript that backs each decision; write "à confirmer" for what was not settled; invent no participant, no date and no owner; add nothing to the rules of the wiki;</li><li>a <strong>check</strong>: at the end, the list of the points the assistant is not sure about.</li></ul>
+<p>The minutes template and an example are stored in the skill folder, not copied into <code>SKILL.md</code>.</p>
+<h2>Steps</h2>
+<ol><li>Read two sets of minutes in <code>wiki/reunions/</code>, including CR-018. Spot the headings that come back.</li><li>Ask the AI to build the skill from these examples. For instance:</li></ol>
+<p>   ``<code>text    Read two sets of minutes in wiki/reunions/.    Create a skill named meeting-minutes that writes the minutes of a meeting    in the same format, from a transcript or from raw notes.    Write the skill in English. The minutes stay in French, like the wiki.    Store the template and one example in the skill folder.    Ask me your questions before you write it.    </code>``</p>
+<ol><li>Open <code>SKILL.md</code> and reread it: the description, the steps, the rules. Change at least one line by hand.</li><li>In a new conversation, run the skill on the dialogue of the Peppol meeting.</li><li>Compare the result with CR-018: same headings, same tone, same level of detail?</li></ol>
+<p><strong>To hand in, per group:</strong> the <code>meeting-minutes/</code> folder and the minutes it produced, saved in <code>wiki/reunions/</code> and named like the existing minutes.</p>
+<h2>Check before handing in</h2>
+<p>Check directly in the skill and in the minutes that:</p>
+<ul><li>each decision points to a line of the dialogue;</li><li>what was not settled in the meeting is written "à confirmer", not presented as a decision;</li><li>no participant, no date and no action owner is invented;</li><li>the headings are those of CR-018, in the same order;</li><li>the skill mentions neither Peppol nor the people of this meeting: it has to work for the next one;</li><li>no wiki page other than the new minutes was changed.</li></ul>
+<p><strong>Hand in only the skill folder and the minutes. No other document is asked for.</strong></p>
+<footer>LUMEN is a fictional project, written for this training.</footer>
+</main>
+<script>
+document.querySelectorAll('pre').forEach(function(pre){
+  var box=document.createElement('div');box.className='pre';
+  pre.parentNode.insertBefore(box,pre);box.appendChild(pre);
+  var b=document.createElement('button');b.className='copy';b.type='button';
+  var idle=document.documentElement.lang==='fr'?'Copier':'Copy';
+  var done=document.documentElement.lang==='fr'?'Copié':'Copied';
+  b.textContent=idle;
+  b.onclick=function(){navigator.clipboard.writeText(pre.innerText).then(function(){
+    b.textContent=done;setTimeout(function(){b.textContent=idle},1500)})};
+  box.appendChild(b);
+});
+</script>
+</body>
+</html>

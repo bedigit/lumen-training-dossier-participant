@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The demo skill: dg-context</title>
+<style>
+:root{--bg:#F7F5F0;--card:#FFFDF9;--ink:#14213D;--soft:#3D4A5C;--mute:#6B7585;
+--line:#E2DDD2;--accent:#A94E17;--accent2:#E07A2F;--code:#EDEAE2}
+@media (prefers-color-scheme:dark){:root{--bg:#10192E;--card:#18233D;--ink:#F2EFE8;
+--soft:#C9D1DE;--mute:#93A0B4;--line:#2C3A58;--accent:#F0A368;--accent2:#E07A2F;--code:#22304F}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:17px/1.6 "IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:40px 16px 64px}
+.kicker{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+h1{font:600 34px/1.15 "Space Grotesk",system-ui,sans-serif;margin:8px 0 24px}
+h2{font:600 23px/1.25 "Space Grotesk",system-ui,sans-serif;margin:36px 0 12px}
+h3{font-size:18px;margin:28px 0 8px}
+p,li{color:var(--soft)} strong{color:var(--ink)}
+a{color:var(--accent);font-weight:600}
+code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:.9em;
+font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.pre{position:relative;margin:16px 0}
+pre{margin:0;background:#14213D;color:#F7F5F0;padding:20px;border-radius:12px;
+overflow-x:auto;white-space:pre-wrap;font-size:14.5px;line-height:1.55}
+pre code{background:none;padding:0;color:inherit;font-size:inherit}
+.copy{position:absolute;top:10px;right:10px;border:0;border-radius:8px;padding:6px 12px;
+background:var(--accent2);color:#14213D;font:600 13px system-ui,sans-serif;cursor:pointer}
+.table{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%;font-size:15.5px}
+th{background:#14213D;color:#F7F5F0;text-align:left;padding:10px 12px}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--soft)}
+ul.check{list-style:none;padding-left:0}
+ul.check li{padding-left:30px;position:relative;margin:6px 0}
+ul.check li:before{content:"";position:absolute;left:0;top:5px;width:16px;height:16px;
+border:2px solid var(--accent);border-radius:4px}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;color:var(--mute)}
+</style>
+</head>
+<body>
+<main>
+<p class="kicker">AI for Business &amp; Functional Analysts · Session 3</p>
+<h1>The demo skill: dg-context</h1>
+<p>The skill shown at the start of the session. It draws a context diagram as an editable draw.io file: the system in the centre, the roles on the left, the outside systems on the right, one labelled flow per exchange, each with its source. For a change that is not built yet, such as the Peppol integration, it shows what exists in navy and what the change adds in dashed orange.</p>
+<p><a href="dg-context.zip" download>Download the dg-context skill (zip)</a></p>
+<h2>What is in it</h2>
+<div class="table"><table><thead><tr><th>File</th><th>Role</th></tr></thead><tbody><tr><td><code>SKILL.md</code></td><td>The instructions: what a context diagram is, the steps, the fixed layout, the rules</td></tr><tr><td><code>template.drawio</code></td><td>The house style, with one sample of each case. Open it in draw.io to change colours or shapes</td></tr></tbody></table></div>
+<p>There is no script: nothing is installed and nothing is run.</p>
+<h2>How to use it</h2>
+<ol><li>Add it to your assistant. In the Claude app: Customize › Skills, then upload the zip.</li><li>Open your LUMEN working folder in a new conversation.</li><li>Type, for example:</li></ol>
+<p>   ``<code>text    /dg-context the Peppol integration, from the Peppol meeting dialogue    </code>``</p>
+<ol><li>Open the <code>.drawio</code> file it writes in draw.io: the desktop app or app.diagrams.net.</li></ol>
+<h2>Good to know</h2>
+<ul><li>The diagram is a draft to review: check each flow against the source named on its label.</li><li>LUMEN and everyone in it are fictional.</li><li>On a real project, use only the tools and skills your organisation allows.</li></ul>
+<footer>LUMEN is a fictional project, written for this training.</footer>
+</main>
+<script>
+document.querySelectorAll('pre').forEach(function(pre){
+  var box=document.createElement('div');box.className='pre';
+  pre.parentNode.insertBefore(box,pre);box.appendChild(pre);
+  var b=document.createElement('button');b.className='copy';b.type='button';
+  var idle=document.documentElement.lang==='fr'?'Copier':'Copy';
+  var done=document.documentElement.lang==='fr'?'Copié':'Copied';
+  b.textContent=idle;
+  b.onclick=function(){navigator.clipboard.writeText(pre.innerText).then(function(){
+    b.textContent=done;setTimeout(function(){b.textContent=idle},1500)})};
+  box.appendChild(b);
+});
+</script>
+</body>
+</html>
