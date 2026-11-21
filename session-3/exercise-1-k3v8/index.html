@@ -52,11 +52,13 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);font-si
 <p>You also need your LUMEN working folder, with its wiki.</p>
 <h2>Steps</h2>
 <ol><li><strong>Read the skill before you add it.</strong> Open the <code>SKILL.md</code> of grill-me: it only calls grilling. Then open the <code>SKILL.md</code> of grilling. Find its description, then what it tells the assistant to do.</li><li><strong>Add it</strong>: ask your assistant to do it, with the link. Nothing is installed on your PC: a skill is a folder of text files.</li></ol>
-<p>   ``<code>text    Add the grill-me skill from this link, with the grilling skill it calls:    https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me    </code>``</p>
+<pre><code>Add the grill-me skill from this link, with the grilling skill it calls:
+https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me</code></pre>
 <p>   If your assistant cannot add skills, copy the content of grilling's <code>SKILL.md</code> and paste it at the start of a new conversation. The questions are the same; the skill just has no name.</p>
-<ol><li><strong>Run it</strong> in a new conversation:</li></ol>
-<p>   ``<code>text    Grill me on UC-18, sending manual or automatic reminders.    Read the use case page in the wiki and open-questions.md first.    </code>``</p>
-<ol><li><strong>Answer five questions.</strong> Leave one unanswered, on purpose.</li><li><strong>Compare</strong> the questions it asked with <code>wiki/open-questions.md</code>.</li></ol>
+<ol start="3"><li><strong>Run it</strong> in a new conversation:</li></ol>
+<pre><code>Grill me on UC-18, sending manual or automatic reminders.
+Read the use case page in the wiki and open-questions.md first.</code></pre>
+<ol start="4"><li><strong>Answer five questions.</strong> Leave one unanswered, on purpose.</li><li><strong>Compare</strong> the questions it asked with <code>wiki/open-questions.md</code>.</li></ol>
 <h2>Check</h2>
 <p>Check directly in the conversation that:</p>
 <ul><li>the skill fired: the assistant asks its questions in rounds, each with a recommended answer;</li><li>the assistant waits for your answers and does not answer for you;</li><li>no question is about a point the wiki already settles;</li><li>the question you left unanswered stays open: it is not turned into a decision;</li><li>the answers the assistant recommends are presented as proposals, not as LUMEN rules.</li></ul>
